@@ -113,6 +113,12 @@ class GitRepository(object):
         output = shellcmd.run(shlex.split(cmd),output=True)
         return output.rstrip()
 
+    def create_patch(self, args=None):
+        cmd = self.__git + ' --no-pager diff --no-color'
+        print(f"local: {self.__local}")
+        output = shellcmd.run(cmd.split(),output=True)
+        return output.rstrip()
+
     def fetch(self, args=None):
         cmd = self.__git + ' fetch'
         if args.all:

@@ -4,6 +4,7 @@ from cmdline.branch_parser import MepoBranchArgParser
 from cmdline.stash_parser  import MepoStashArgParser
 from cmdline.tag_parser    import MepoTagArgParser
 from cmdline.config_parser import MepoConfigArgParser
+from cmdline.patch_parser  import MepoPatchArgParser
 from utilities             import mepoconfig
 
 class MepoArgParser(object):
@@ -31,6 +32,7 @@ class MepoArgParser(object):
         self.__branch()
         self.__tag()
         self.__stash()
+        self.__patch()
         self.__develop()
         self.__pull()
         self.__pull_all()
@@ -224,6 +226,12 @@ class MepoArgParser(object):
             description = "Runs stash commands.",
             aliases=mepoconfig.get_command_alias('stash'))
         MepoStashArgParser(stash)
+
+    def __patch(self):
+        patch = self.subparsers.add_parser(
+            'patch',
+            description = "Runs patch commands.")
+        MepoPatchArgParser(patch)
 
     def __tag(self):
         tag = self.subparsers.add_parser(
