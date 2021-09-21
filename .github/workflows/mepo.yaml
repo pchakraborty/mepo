@@ -20,6 +20,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pyyaml
+        python -m pip install --upgrade pyyaml build twine
+    - name: Build mepo
+      run: |
+        python -m build
+    - name: Install mepo
+      run: |
+        python -m pip install .
     - name: Run unit tests
-      run: python mepo.d/utest/test_mepo_commands.py -v
+      run: |
+        python mepo/utest/test_mepo_commands.py -v
