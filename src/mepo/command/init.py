@@ -1,8 +1,15 @@
+import warnings
+
 from ..state import MepoState
 from ..utilities import mepoconfig
 
 
 def run(args):
+    warnings.warn("init will be removed in version 3, use clone instead")
+    run_private(args)
+
+
+def run_private(args):
     if args.style:
         style = args.style
     elif mepoconfig.has_option("init", "style"):

@@ -137,7 +137,7 @@ def test_mepo_clone_url_external_registry():
     mepo_clone.run(args)
     saved_output = """Checking status...
 GEOSfvdycore           | (b) mepo-testing-do-not-delete
-   | external-components.yaml: \x1b[31muntracked file\x1b[0m
+   | components.yaml: \x1b[31mmodified, not staged\x1b[0m
 env                    | (t) v4.29.1 (DH)
 cmake                  | (t) v3.55.0 (DH)
 ecbuild                | (t) geos/v1.4.0 (DH)
